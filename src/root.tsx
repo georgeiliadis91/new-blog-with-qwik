@@ -21,6 +21,10 @@ export default component$(() => {
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
+        />
         <RouterHead />
         <ServiceWorkerRegister />
       </head>

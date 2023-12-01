@@ -6,75 +6,100 @@
  *
  */
 
-:root {
-  --qwik-dark-blue: #006ce9;
-  --qwik-light-blue: #18b6f6;
-  --qwik-light-purple: #ac7ff4;
-  --qwik-dark-purple: #713fc2;
-  --qwik-dirty-black: #1d2033;
-  --qwik-dark-background: #151934;
-  --qwik-dark-text: #ffffff;
-}
-
-html {
-  line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
-}
-
 body {
   padding: 0;
   margin: 0;
   line-height: inherit;
 }
 
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-html {
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
+body {
+  font-family: "IBM Plex Mono", monospace;
+  color: #d5d7d8;
+  background: #1d1f20;
 }
 
-body {
-  padding: 0;
-  line-height: inherit;
+header,
+main,
+footer {
+  margin: 0 auto;
+  max-width: 768px;
+}
+main {
+  margin-bottom: 96px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid #f96743;
+  margin-bottom: 42px;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+header a {
+  text-decoration: none;
+  color: #d5d7d8;
+}
+
+header a:hover {
+  color: #f96743;
+}
+
+header nav a:hover {
+  text-underline-offset: 4px;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+}
+
+header .header-label {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #f96743;
+}
+
+footer div.social-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+footer div.social-container svg {
+  width: 24px;
+  height: 24px;
+  fill: #f96743;
+}
+
+footer div.social-container svg path {
+  fill: #f96743;
+}
+
+h1 {
+  color: #f96743;
+}
+
+article p {
+  line-height: 24px;
+}
+
+main a {
+  text-decoration: none;
+  color: #f96743;
 }

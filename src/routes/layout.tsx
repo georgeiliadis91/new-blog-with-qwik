@@ -1,10 +1,11 @@
 import { component$, Slot, useStyles$ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
+import { Link, routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
-
-import Header from "~/components/starter/header/header";
-import Footer from "~/components/starter/footer/footer";
-
+import {
+  SOCIAL_ICON_SVGS,
+  CMS_BASE_URL,
+  CMS_API_ROUTES,
+} from "~/helpers/index";
 import styles from "./styles.css?inline";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -18,21 +19,45 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
-export const useServerTimeLoader = routeLoader$(() => {
+export const useServerTimeLoader = routeLoader$(async () => {
+  const response = await fetch(`${CMS_BASE_URL}/${CMS_API_ROUTES.socials}`);
+  const data = await response.json();
   return {
-    date: new Date().toISOString(),
+    data,
+    year: new Date().getFullYear(),
   };
 });
 
 export default component$(() => {
+  const serverTime = useServerTimeLoader();
   useStyles$(styles);
+  const { data, year } = serverTime.value;
   return (
     <>
-      <Header />
+      <header>
+        <a class="header-label" href="/">
+          George Iliadis
+        </a>
+        <nav>
+          <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
+        </nav>
+      </header>
+
       <main>
         <Slot />
       </main>
-      <Footer />
+
+      <footer>
+        <p> Copyright © {year} | George Iliadis </p>
+        <div class="social-container">
+          {Object.entries(SOCIAL_ICON_SVGS).map(([key, val]) => (
+            <Link href={data[key]} key={key}>
+              <span dangerouslySetInnerHTML={val} />
+            </Link>
+          ))}
+        </div>
+      </footer>
     </>
   );
 });
