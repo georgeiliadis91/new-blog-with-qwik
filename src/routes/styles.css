@@ -35,3 +35,44 @@ article li p {
 p span.date-str {
   color: #f96743;
 }
+
+article h1 {
+  margin-bottom: 32px;
+}
+
+article li {
+  margin-bottom: 16px;
+}
+
+article li a {
+  text-decoration: underline;
+  color: #d5d7d8;
+  font-size: 18px;
+}
+
+article li a:hover {
+  color: #f96743;
+}
+
+article li p {
+  margin: 0;
+  color: #d5d7d8;
+  font-size: 14px;
+  text-align: left;
+}
+
+p.article-date-container {
+  text-align: right;
+}
+
+p span.date-str {
+  color: #f96743;
+}
+
+p span.article-date {
+  color: #f96743;
+}
+
+article img {
+  width: 100%;
+}

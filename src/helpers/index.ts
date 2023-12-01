@@ -1,3 +1,5 @@
+import Showdown from "showdown";
+
 export const CMS_BASE_URL = "https://admin.georgeiliadis.com";
 
 export const CMS_API_ROUTES = {
@@ -28,3 +30,5 @@ export function formatDate(dateString: string) {
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
   return formattedDate;
 }
+
+export const converter = new Showdown.Converter();

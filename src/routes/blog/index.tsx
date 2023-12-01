@@ -1,5 +1,5 @@
-import { Resource, component$, useStylesScoped$ } from "@builder.io/qwik";
-import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import { component$ } from "@builder.io/qwik";
+import { routeLoader$, Link, type DocumentHead } from "@builder.io/qwik-city";
 import { CMS_BASE_URL, CMS_API_ROUTES } from "~/helpers";
 import { formatDate } from "~/helpers";
 
@@ -9,7 +9,7 @@ interface IBlog {
   created_at: string;
 }
 
-export const useBlogPageData = routeLoader$(async (requestEvent) => {
+export const useBlogPageData = routeLoader$(async () => {
   const response = await fetch(
     `${CMS_BASE_URL}/${CMS_API_ROUTES.blogs}?_sort=created_at:DESC`
   );
@@ -36,8 +36,8 @@ export default component$(() => {
       <ul>
         {signal.value.blogs.map((post: IBlog) => {
           return (
-            <li>
-              <a href={`/blog/${post.slug}`}>{post.title}</a>
+            <li key={post.slug}>
+              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
               <p>
                 Date:{" "}
                 <span class="date-str">{formatDate(post.created_at)}</span>

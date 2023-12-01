@@ -1,15 +1,11 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
-import { CMS_BASE_URL, CMS_API_ROUTES } from "~/helpers";
-import Showdown from "showdown";
+import { CMS_BASE_URL, CMS_API_ROUTES, converter } from "~/helpers";
 
-export const useHomePageData = routeLoader$(async (requestEvent) => {
+export const useHomePageData = routeLoader$(async () => {
   const response = await fetch(`${CMS_BASE_URL}/${CMS_API_ROUTES.home}`);
   const data = await response.json();
-  const converter = new Showdown.Converter();
-  const portofolioText = converter
-    .makeHtml(data.portofolio)
-    .replace(/<img/g, '<img loading="lazy"');
+  const portofolioText = converter.makeHtml(data.portofolio);
 
   return { content: portofolioText, cvUrl: data.cv.url };
 });
