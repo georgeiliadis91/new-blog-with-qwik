@@ -35,12 +35,14 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "George Iliadis",
-  meta: [
-    {
-      name: "George Iliadis | Software Engineer",
-      content: "Article",
-    },
-  ],
+export const head: DocumentHead = ({resolveValue}) => {
+    const {title} = resolveValue(useArticleFetchData);
+    return {
+        title: "George Iliadis",
+        meta: [
+        {
+            name: "description",
+            content: title,
+        }],
+    }
 };

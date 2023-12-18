@@ -22,7 +22,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <link
-          rel="stylesheet"
+          rel="preload"
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
         />
         <RouterHead />

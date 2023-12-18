@@ -52,7 +52,7 @@ export default component$(() => {
         <p> Copyright © {year} | George Iliadis </p>
         <div class="social-container">
           {Object.entries(SOCIAL_ICON_SVGS).map(([key, val]) => (
-            <Link href={data[key]} key={key}>
+            <Link href={data[key]} key={key} aria-label={`${key}-icon-link`}>
               <span dangerouslySetInnerHTML={val} />
             </Link>
           ))}
