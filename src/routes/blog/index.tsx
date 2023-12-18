@@ -54,8 +54,8 @@ export const head: DocumentHead = {
   title: "George Iliadis | Blog List ",
   meta: [
     {
-      name: "George Iliadis | Software Engineer",
-      content: "Blog list page",
+      name: "description",
+      content: "George Iliadis Blog List",
     },
   ],
 };

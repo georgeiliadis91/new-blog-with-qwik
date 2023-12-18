@@ -28,8 +28,8 @@ export const head: DocumentHead = {
   title: "Welcome to my Website",
   meta: [
     {
-      name: "George Iliadis | Software Engineer",
-      content: "Web engineering blog",
+      name: "description",
+      content: "George Iliadis | Software Engineer",
     },
   ],
 };
