@@ -8,8 +8,6 @@ export const useArticleFetchData = routeLoader$(async (requestEvent) => {
   );
   const data = await response.json();
 
-  console.log("the data", data);
-
   const body = converter
     .makeHtml(data[0].body)
     .replace(/<img/g, '<img loading="lazy"');
